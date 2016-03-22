@@ -1,5 +1,5 @@
 import unittest
-from uautils import autoincr
+from ua.utils import autoincr
 
 class Test_AutoIncr(unittest.TestCase):
 
@@ -15,4 +15,3 @@ class Test_AutoIncr(unittest.TestCase):
         auto_incr = autoincr.AutoIncr(11)
         self.assertEqual (auto_incr.next(), 11)
         self.assertEqual (auto_incr.next(), 12)
-        self.assertEqual (auto_incr.next(), 13)

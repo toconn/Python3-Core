@@ -1,5 +1,5 @@
 import unittest
-from uautils import isfirst
+from ua.utils import isfirst
 
 
 class Test_IsFirst(unittest.TestCase):
@@ -11,13 +11,11 @@ class Test_IsFirst(unittest.TestCase):
         self.assertTrue(first.isirst())
         self.assertFalse(first.is_first())
         self.assertFalse(first.is_first())
-        self.assertFalse(first.is_first())
 
     def test_isFirst(self):
 
         first = isfirst.IsFirst()
 
         self.assertFalse(first.is_not_first())
-        self.assertTrue(first.is_not_first())
         self.assertTrue(first.is_not_first())
         self.assertTrue(first.is_not_first())
