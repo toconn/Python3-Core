@@ -1,3 +1,4 @@
+import os
 from . import os_const
 from .uaos_base import UaOsBase
 
@@ -7,6 +8,8 @@ class UaOsLinux (UaOsBase):
     NEWLINE = os_const.NEWLINE_LINUX
     OS_NAME = 'Linux'
     PATH_SEPARATOR = os_const.PATH_SEPARATOR_LINUX
+    USER_DIR_VAR = 'HOME'
+    USER_APP_SUBDIR = '.config'
 
     def file_separator(self):
         return UaOsLinux.FILE_SEPARATOR
@@ -37,3 +40,9 @@ class UaOsLinux (UaOsBase):
 
     def path_separator(self):
         return UaOsLinux.PATH_SEPARATOR
+
+    def user_app_dir(self):
+        return os.path.join(self.user_dir, UaOsLinux.USER_APP_SUBDIR)
+
+    def user_dir(self):
+        return os.path.expandvars(UaOsLinux.USER_DIR_VAR)

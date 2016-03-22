@@ -1,3 +1,4 @@
+import os
 from . import os_const
 from .uaos_base import UaOsBase
 
@@ -7,6 +8,8 @@ class UaOsOsx (UaOsBase):
     NEWLINE = os_const.NEWLINE_LINUX
     OS_NAME = 'OS X'
     PATH_SEPARATOR = os_const.PATH_SEPARATOR_LINUX
+    USER_DIR_VAR = 'HOME'
+    USER_APP_SUBDIR = 'Library/Application Support'
 
     def file_separator(self):
         return UaOsOsx.FILE_SEPARATOR
@@ -37,3 +40,9 @@ class UaOsOsx (UaOsBase):
 
     def path_separator(self):
         return UaOsOsx.PATH_SEPARATOR
+
+    def user_app_dir(self):
+        return os.path.join(self.user_dir, UaOsOsx.USER_APP_SUBDIR)
+
+    def user_dir(self):
+        return os.path.expandvars(UaOsOsx.USER_DIR_VAR)

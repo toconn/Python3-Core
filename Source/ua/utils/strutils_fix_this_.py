@@ -1,19 +1,4 @@
 #////////////////////////////////////////////
-#// Returns the text before the search string
-#// Or returns the whole string if not found.
-#////////////////////////////////////////////
-
-def before (text, subtext):
-    
-    index = text.find (subtext)
-    
-    if (index > -1): 
-        return text [:index]
-    else:
-        return text
-
-
-#////////////////////////////////////////////
 #// Returns substring info
 #////////////////////////////////////////////
 

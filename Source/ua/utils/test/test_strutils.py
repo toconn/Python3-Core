@@ -4,6 +4,36 @@ from ua.utils import strutils
 
 class Test_StrUtils(unittest.TestCase):
     
+    def test_before_none(self):
+        
+        result = strutils.before(None, 'break')
+        self.assertIsNone(result)
+    
+    def test_before_match(self):
+        
+        result = strutils.before('ABCbreak123', 'break')
+        self.assertEquals('ABC', result)
+    
+    def test_before_no_match(self):
+        
+        result = strutils.before('ABC123', 'break')
+        self.assertEquals('ABC123', result)
+    
+    def test_ends_with_none(self):
+        
+        result = strutils.ends_with(None, 'end')
+        self.assertFalse(result)
+    
+    def test_ends_with_match(self):
+        
+        result = strutils.ends_with('ABC123end', 'end')
+        self.assertTrue(result)
+    
+    def test_ends_with_no_match(self):
+        
+        result = strutils.ends_with('ABC123', 'end')
+        self.assertFalse(result)
+    
     def test_lower_none(self):
 
         result = strutils.lower(None)

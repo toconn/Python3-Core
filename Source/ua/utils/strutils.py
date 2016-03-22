@@ -1,3 +1,25 @@
+def before(string, substring):
+    ''' Returns the text before the search string
+        Or returns the whole string if not found.
+    '''
+    
+    if string is not None:
+        index = string.find (substring)
+    else:
+        index = -1
+
+    if index > -1: 
+        return string [:index]
+    else:
+        return string
+
+def ends_with (string, end_string):
+    
+    if string is not None:
+        return string.endswith(end_string)
+    else:
+        return False
+
 def lower(string):
     ''' None safe string to lowercase function.
     '''

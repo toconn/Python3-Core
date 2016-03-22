@@ -1,3 +1,4 @@
+import os
 from . import os_const
 from .uaos_base import UaOsBase
 
@@ -7,6 +8,8 @@ class UaOsWindows (UaOsBase):
     NEWLINE = os_const.NEWLINE_WINDOWS
     OS_NAME = 'Windows'
     PATH_SEPARATOR = os_const.PATH_SEPARATOR_WINDOWS
+    USER_DIR_VAR = 'HOMEPATH'
+    USER_APP_SUBDIR_VAR = 'APPDATA'
 
     def file_separator(self):
         return UaOsWindows.FILE_SEPARATOR
@@ -37,3 +40,10 @@ class UaOsWindows (UaOsBase):
 
     def path_separator(self):
         return UaOsWindows.PATH_SEPARATOR
+
+
+    def user_app_dir(self):
+        return os.path.expandvars(UaOsWindows.USER_APP_SUBDIR_VAR)
+
+    def user_dir(self):
+        return os.path.expandvars(UaOsWindows.USER_DIR_VAR)

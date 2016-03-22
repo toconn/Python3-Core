@@ -18,7 +18,7 @@ class UaOsBase:
     @abc.abstractmethod
     def file_separator(self):
         pass
-
+    
     @abc.abstractmethod
     def is_linux(self):
         pass
@@ -46,3 +46,12 @@ class UaOsBase:
     @abc.abstractmethod
     def path_separator(self):
         pass
+    
+    @abc.abstractmethod
+    def user_app_dir(self):
+        pass
+
+    @abc.abstractmethod
+    def user_dir(self):
+        pass
+
