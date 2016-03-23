@@ -1,6 +1,5 @@
 import unittest
-from ua.utils.standard import *
-from unittest import result
+from ua.core.utils.standard import *
 
 class TestStandard(unittest.TestCase):
     

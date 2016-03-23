@@ -1,6 +1,6 @@
 import os
 from . import os_const
-from .uaos_base import UaOsBase
+from ua.core.utils.os.ua_os_base import UaOsBase
 
 class UaOsWindows (UaOsBase):
     
@@ -43,7 +43,7 @@ class UaOsWindows (UaOsBase):
 
 
     def user_app_dir(self):
-        return os.path.expandvars(UaOsWindows.USER_APP_SUBDIR_VAR)
+        return os.getenv(UaOsWindows.USER_APP_SUBDIR_VAR)
 
     def user_dir(self):
-        return os.path.expandvars(UaOsWindows.USER_DIR_VAR)
+        return os.getenv(UaOsWindows.USER_DIR_VAR)

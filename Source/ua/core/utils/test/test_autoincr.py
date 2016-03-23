@@ -1,5 +1,5 @@
 import unittest
-from ua.utils import autoincr
+from ua.core.utils import autoincr
 
 class Test_AutoIncr(unittest.TestCase):
 

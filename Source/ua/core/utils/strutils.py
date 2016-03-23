@@ -7,11 +7,19 @@ def before(string, substring):
         index = string.find (substring)
     else:
         index = -1
+        
 
     if index > -1: 
         return string [:index]
     else:
         return string
+
+def contains(string, substring):
+
+    if string is not None:
+        return (string.find (substring)) > -1
+    else:
+        return False
 
 def ends_with (string, end_string):
     
@@ -19,6 +27,20 @@ def ends_with (string, end_string):
         return string.endswith(end_string)
     else:
         return False
+
+def equals_ignore_case (string1, string2):
+    
+    if string1 is not None and string2 is not None:
+        return string1.lower() == string2.lower()
+    elif string1 is None and string2 is None:
+        return True
+    else:
+        # One is None but not both.
+        return False
+
+def join (list1, separator):
+    
+    return separator.join(list1)
 
 def lower(string):
     ''' None safe string to lowercase function.

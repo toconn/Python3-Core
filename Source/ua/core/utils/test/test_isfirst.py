@@ -1,5 +1,5 @@
 import unittest
-from ua.utils import isfirst
+from ua.core.utils import isfirst
 
 
 class Test_IsFirst(unittest.TestCase):

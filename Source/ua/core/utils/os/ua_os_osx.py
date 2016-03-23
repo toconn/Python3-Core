@@ -1,18 +1,18 @@
 import os
 from . import os_const
-from .uaos_base import UaOsBase
+from ua.core.utils.os.ua_os_base import UaOsBase
 
-class UaOsLinux (UaOsBase):
+class UaOsOsx (UaOsBase):
     
     FILE_SEPARATOR = os_const.FILE_SEPARATOR_LINUX
     NEWLINE = os_const.NEWLINE_LINUX
-    OS_NAME = 'Linux'
+    OS_NAME = 'OS X'
     PATH_SEPARATOR = os_const.PATH_SEPARATOR_LINUX
     USER_DIR_VAR = 'HOME'
-    USER_APP_SUBDIR = '.config'
+    USER_APP_SUBDIR = 'Library/Application Support'
 
     def file_separator(self):
-        return UaOsLinux.FILE_SEPARATOR
+        return UaOsOsx.FILE_SEPARATOR
 
     def is_linux(self):
         return False
@@ -24,25 +24,25 @@ class UaOsLinux (UaOsBase):
         return False
 
     def newline(self):
-        return UaOsLinux.NEWLINE
+        return UaOsOsx.NEWLINE
 
     def os_name(self):
-        return UaOsLinux.OS_NAME
+        return UaOsOsx.OS_NAME
 
     def normalize_path(self, path):
         
         if path:
             path = path \
-                .replace (os_const.FILE_SEPARATOR_WINDOWS, UaOsLinux.FILE_SEPARATOR) \
-                .replace (os_const.PATH_SEPARATOR_WINDOWS, UaOsLinux.PATH_SEPARATOR)
+                .replace (os_const.FILE_SEPARATOR_WINDOWS, UaOsOsx.FILE_SEPARATOR) \
+                .replace (os_const.PATH_SEPARATOR_WINDOWS, UaOsOsx.PATH_SEPARATOR)
             
         return path
 
     def path_separator(self):
-        return UaOsLinux.PATH_SEPARATOR
+        return UaOsOsx.PATH_SEPARATOR
 
     def user_app_dir(self):
-        return os.path.join(self.user_dir, UaOsLinux.USER_APP_SUBDIR)
+        return os.path.join(self.user_dir(), UaOsOsx.USER_APP_SUBDIR)
 
     def user_dir(self):
-        return os.path.expandvars(UaOsLinux.USER_DIR_VAR)
+        return os.getenv(UaOsOsx.USER_DIR_VAR)

@@ -1,5 +1,5 @@
 import unittest
-from ua.utils.os import UaOsOsx
+from ua.core.utils.os import UaOsOsx
 from . import test_data
 
 class TestOSXOS(unittest.TestCase):

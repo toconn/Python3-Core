@@ -1,5 +1,5 @@
 import unittest
-from ua.utils import dictutils
+from ua.core.utils import dictutils
 
 
 class Test_DictUtils(unittest.TestCase):

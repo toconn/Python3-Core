@@ -1,11 +1,11 @@
 import unittest
+from ua.core.utils.os import UaOsWindows
 from . import test_data
-from ua.utils.os import UaOsLinux
 
-class TestOSXOS(unittest.TestCase):
+class TestWindowsOS(unittest.TestCase):
     
     def setUp(self):
-        self._os = UaOsLinux()
+        self._os = UaOsWindows()
         
     def test_class_constants(self):
         self.assertTrue (self._os.FILE_SEPARATOR)
@@ -17,13 +17,13 @@ class TestOSXOS(unittest.TestCase):
         self._test_normaliz_path ('', '')
     
     def test_normalize_path_linux(self):
-        self._test_normaliz_path (test_data.DIR_LINUX_1, test_data.DIR_LINUX_1)
+        self._test_normaliz_path (test_data.DIR_LINUX_1, test_data.DIR_WINDOWS_1)
     
     def test_normalize_path_osx(self):
-        self._test_normaliz_path (test_data.DIR_OSX_1, test_data.DIR_LINUX_1)
+        self._test_normaliz_path (test_data.DIR_OSX_1, test_data.DIR_WINDOWS_1)
     
     def test_normalize_path_windows(self):
-        self._test_normaliz_path (test_data.DIR_WINDOWS_1, test_data.DIR_LINUX_1)
+        self._test_normaliz_path (test_data.DIR_WINDOWS_1, test_data.DIR_WINDOWS_1)
     
     def _test_normaliz_path(self, path, expected_normalized_path):
         

@@ -1,5 +1,5 @@
 import unittest
-from ua.utils import strutils
+from ua.core.utils import strutils
 
 
 class Test_StrUtils(unittest.TestCase):
@@ -18,6 +18,21 @@ class Test_StrUtils(unittest.TestCase):
         
         result = strutils.before('ABC123', 'break')
         self.assertEquals('ABC123', result)
+
+    def test_contains_none(self):
+        
+        result = strutils.contains(None, 'match')
+        self.assertFalse(result)
+    
+    def test_contains_match(self):
+        
+        result = strutils.contains('ABCmatch123', 'match')
+        self.assertTrue(result)
+    
+    def test_contains_no_match(self):
+        
+        result = strutils.contains('ABC123', 'match')
+        self.assertFalse(result)
     
     def test_ends_with_none(self):
         
@@ -33,6 +48,46 @@ class Test_StrUtils(unittest.TestCase):
         
         result = strutils.ends_with('ABC123', 'end')
         self.assertFalse(result)
+        
+    def test_equals_ignore_case_None_None(self):
+    
+        result = strutils.equals_ignore_case (None, None)
+        self.assertTrue (result)
+    
+    def test_equals_ignore_case_None_Value(self):
+    
+        result = strutils.equals_ignore_case (None, '123')
+        self.assertFalse (result)
+    
+    def test_equals_ignore_case_Value_None(self):
+    
+        result = strutils.equals_ignore_case ('123', None)
+        self.assertFalse (result)
+    
+    def test_equals_ignore_case_lower_case(self):
+    
+        result = strutils.equals_ignore_case ('abcd', 'abcd')
+        self.assertTrue (result)
+    
+    def test_equals_ignore_case_mixed_case(self):
+    
+        result = strutils.equals_ignore_case ('aBcD', 'AbCd')
+        self.assertTrue (result)
+    
+    def test_equals_ignore_case_no_match(self):
+    
+        result = strutils.equals_ignore_case ('abcd', 'dcba')
+        self.assertFalse (result)
+    
+    def test_equals_ignore_case_upper_case(self):
+    
+        result = strutils.equals_ignore_case ('ABCD', 'ABCD')
+        self.assertTrue (result)
+    
+    def test_join(self):
+        
+        result = strutils.join (['aa', 'bb', 'cc'], '-')
+        self.assertEquals (result, 'aa-bb-cc')
     
     def test_lower_none(self):
 

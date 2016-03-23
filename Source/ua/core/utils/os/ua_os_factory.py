@@ -1,10 +1,9 @@
 import platform
-
 from . import UaOsLinux
 from . import UaOsOsx
 from . import UaOsWindows
 
-from ua.utils.os import os_const
+from ua.core.utils.os import os_const
 
 
 def create_ua_os (os_name = None):
