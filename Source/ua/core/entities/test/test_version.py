@@ -24,6 +24,24 @@ class TestVersion(unittest.TestCase):
         self.assertEquals (version.major, 1)
         self.assertEquals (version.minor, 2)
         self.assertEquals (version.revision, 3)
+        
+    def test_inc_major(self):
+        
+        version = Version('1.2.3')
+        version.incr_major()
+        self.assertEqual(version.version_string, '2.0.0')
+
+    def test_inc_minor(self):
+        
+        version = Version('1.2.3')
+        version.incr_minor()
+        self.assertEqual(version.version_string, '1.3.0')
+
+    def test_inc_revision(self):
+        
+        version = Version('1.2.3')
+        version.incr_revision()
+        self.assertEqual(version.version_string, '1.2.4')
 
     def test_version_string_check_nums(self):
         

@@ -3,11 +3,10 @@ def before(string, substring):
         Or returns the whole string if not found.
     '''
     
-    if string is not None:
+    if string is not None and substring is not None:
         index = string.find (substring)
     else:
         index = -1
-        
 
     if index > -1: 
         return string [:index]
@@ -15,20 +14,43 @@ def before(string, substring):
         return string
 
 def contains(string, substring):
+    ''' None safe check if a string contains another string.
+    '''
 
-    if string is not None:
+    if string is not None and substring is not None:
         return (string.find (substring)) > -1
+    elif substring is None:
+        return True
+    else:
+        return False
+
+def contains_ignore_case(string, substring):
+    ''' None safe check if a string contains another string.
+    '''
+
+    if string is not None and substring is not None:
+        return (string.lower().find (substring.lower())) > -1
+    elif substring is None:
+        return True
     else:
         return False
 
 def ends_with (string, end_string):
+    ''' None safe check to see if a string ends in another string.
+    '''
     
-    if string is not None:
+    if string is not None and end_string is not None:
         return string.endswith(end_string)
+    elif end_string is None:
+        return True
     else:
         return False
 
 def equals_ignore_case (string1, string2):
+    ''' Compare strings ignoring case.
+        None safe.
+        None == None -> True
+    '''
     
     if string1 is not None and string2 is not None:
         return string1.lower() == string2.lower()
@@ -38,9 +60,11 @@ def equals_ignore_case (string1, string2):
         # One is None but not both.
         return False
 
-def join (list1, separator):
+def join (strings, separator):
+    ''' Convenience function for joining a list of strings with a separator between items. 
+    '''
     
-    return separator.join(list1)
+    return separator.join(strings)
 
 def lower(string):
     ''' None safe string to lowercase function.

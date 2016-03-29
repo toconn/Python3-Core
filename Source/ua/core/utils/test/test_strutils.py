@@ -34,6 +34,21 @@ class Test_StrUtils(unittest.TestCase):
         result = strutils.contains('ABC123', 'match')
         self.assertFalse(result)
     
+    def test_contains_ignore_case_none(self):
+        
+        result = strutils.contains_ignore_case(None, 'match')
+        self.assertFalse(result)
+    
+    def test_contains_ignore_case_match(self):
+        
+        result = strutils.contains_ignore_case('ABCmaTCh123', 'MAtcH')
+        self.assertTrue(result)
+    
+    def test_contains_ignore_case_no_match(self):
+        
+        result = strutils.contains_ignore_case('ABC123', 'match')
+        self.assertFalse(result)
+    
     def test_ends_with_none(self):
         
         result = strutils.ends_with(None, 'end')

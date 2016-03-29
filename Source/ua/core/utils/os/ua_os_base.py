@@ -44,6 +44,10 @@ class UaOsBase:
         pass
 
     @abc.abstractmethod
+    def normalize_paths(self, paths):
+        pass
+
+    @abc.abstractmethod
     def path_separator(self):
         pass
     

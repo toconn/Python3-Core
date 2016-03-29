@@ -37,6 +37,9 @@ class UaOsOsx (UaOsBase):
                 .replace (os_const.PATH_SEPARATOR_WINDOWS, UaOsOsx.PATH_SEPARATOR)
             
         return path
+    
+    def normalize_paths(self, paths):
+        return [self.normalize_path(path) for path in paths]
 
     def path_separator(self):
         return UaOsOsx.PATH_SEPARATOR
