@@ -1,3 +1,4 @@
+import glob
 import os
 import shutil
 
@@ -17,9 +18,33 @@ def delete (file_path):
         else:
             os.remove(file_path)
 
-def is_dir_and_file_exists (dir, file_name):
+def get_dir_file_names (dir_path, file_filter=None):
+    ''' Returns a list of files. The file list can be filtered (ex: *.txt).
+    '''
     
-    return is_file_exists (os.path.join(dir, file_name))
+    if file_filter:
+        file_names = [os.path.basename(file_name) for file_name in glob.glob (os.path.join (dir_path, file_filter))]
+    else:
+        file_names = os.listdir(dir_path)
+        
+    return file_names
+
+def get_dir_file_paths (dir_path, file_filter=None):
+    ''' Returns a list of files. The file list can be filtered (ex: *.txt).
+    '''
+
+    return glob.glob (os.path.join (dir_path, file_filter))
+
+def is_dir_and_file_exists (dir_path, file_name):
+    
+    return is_file_exists (os.path.join(dir_path, file_name))
+
+def is_dir_exists(dir_path):
+    ''' Tests if the directory exists and is in fact a directory
+    '''
+    
+    exists = os.path.isdir(dir_path)  
+    return exists
 
 def is_file_exists(file_path):
     
