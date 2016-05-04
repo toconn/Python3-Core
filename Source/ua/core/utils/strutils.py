@@ -60,6 +60,13 @@ def equals_ignore_case (string1, string2):
         # One is None but not both.
         return False
 
+def is_blank (string):
+    
+    if not string or string.isspace():
+        return True
+    else:
+        return False
+
 def join (strings, separator):
     ''' Convenience function for joining a list of strings with a separator between items. 
     '''

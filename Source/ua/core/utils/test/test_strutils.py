@@ -99,6 +99,31 @@ class Test_StrUtils(unittest.TestCase):
         result = strutils.equals_ignore_case ('ABCD', 'ABCD')
         self.assertTrue (result)
     
+    def test_is_blank_empty(self):
+        
+        result = strutils.is_blank('')
+        self.assertTrue (result)
+    
+    def test_is_blank_newline(self):
+        
+        result = strutils.is_blank('\n')
+        self.assertTrue (result)
+    
+    def test_is_blank_none(self):
+        
+        result = strutils.is_blank(None)
+        self.assertTrue (result)
+    
+    def test_is_blank_space(self):
+        
+        result = strutils.is_blank(' ')
+        self.assertTrue (result)
+    
+    def test_is_blank_text(self):
+        
+        result = strutils.is_blank("Not None")
+        self.assertFalse (result)
+    
     def test_join(self):
         
         result = strutils.join (['aa', 'bb', 'cc'], '-')
