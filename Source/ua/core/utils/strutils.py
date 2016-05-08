@@ -66,6 +66,10 @@ def is_blank (string):
         return True
     else:
         return False
+    
+def is_not_blank(string):
+    
+    return not is_blank (string)
 
 def join (strings, separator):
     ''' Convenience function for joining a list of strings with a separator between items. 

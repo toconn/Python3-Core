@@ -124,6 +124,11 @@ class Test_StrUtils(unittest.TestCase):
         result = strutils.is_blank("Not None")
         self.assertFalse (result)
     
+    def test_is_not_blank(self):
+        
+        result = strutils.is_not_blank('')
+        self.assertFalse(result)
+    
     def test_join(self):
         
         result = strutils.join (['aa', 'bb', 'cc'], '-')
