@@ -1,3 +1,5 @@
+import re
+
 def before(string, substring):
     ''' Returns the text before the search string
         Or returns the whole string if not found.
@@ -105,6 +107,24 @@ def replace(string, search_string, replace_string):
         # Return as is (None).
     
     return string
+
+def startswith(string, start):
+    ''' Null safe startswith function.
+    '''
+    
+    if string is not None:
+        return string.startswith(start)
+    else:
+        return False
+    
+def startswith_ignore_case(string, start):
+    ''' Null safe case insensitive startswith function.
+    '''
+    
+    if string is not None:
+        return bool(re.match(start, string, re.I))
+    else:
+        return False
 
 def strip (string):
     '''None safe string strip function.

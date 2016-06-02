@@ -164,6 +164,36 @@ class Test_StrUtils(unittest.TestCase):
         result = strutils.replace('AB12CD12ED12', '12', '34')
         self.assertEquals(result, 'AB34CD34ED34')
 
+    def test_startswith_match(self):
+        
+        result = strutils.startswith("Start12345", "Start")
+        self.assertTrue(result, 'Expected true match.')
+
+    def test_startswith_mismatch(self):
+        
+        result = strutils.startswith("Start Mismatch 12345", "start")
+        self.assertFalse(result, 'Expected false match.')
+
+    def test_startswith_none(self):
+        
+        result = strutils.startswith(None, "Main String is None.")
+        self.assertFalse(result, 'Expected false match.')
+
+    def test_startswith_ignore_case_match(self):
+        
+        result = strutils.startswith_ignore_case("Start12345", "start")
+        self.assertTrue(result, 'Expected true match.')
+
+    def test_startswith_ignore_case_mismatch(self):
+        
+        result = strutils.startswith_ignore_case("Start Mismatch 12345", "No Start")
+        self.assertFalse(result, 'Expected false match.')
+
+    def test_startswith_ignore_case_none(self):
+        
+        result = strutils.startswith_ignore_case(None, "Main String is None.")
+        self.assertFalse(result, 'Expected false match.')
+
     def test_strip_none(self):
         
         result = strutils.strip(None)

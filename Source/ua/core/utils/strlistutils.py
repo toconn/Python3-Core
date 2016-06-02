@@ -1,6 +1,8 @@
 from . import strutils
 
 def contains_ignore_case (strings, match):
+    ''' Returns true if any of the items in strings contains match.
+    '''
     
     if match:
         return match.lower() in (item.lower() for item in strings)
@@ -8,6 +10,8 @@ def contains_ignore_case (strings, match):
         return False
 
 def find_index_containing (strings, match):
+    ''' Return the index of the item in strings that contains match.
+    '''
     
     found = False
     index = 0
@@ -27,7 +31,10 @@ def find_index_containing (strings, match):
     return index
 
 def find_index_containing_ignore_case (strings, match):
-    
+    ''' Return the index of the item in strings that contains match.
+        Compares ignoring case.
+    '''
+        
     found = False
     index = 0
 
@@ -44,4 +51,3 @@ def find_index_containing_ignore_case (strings, match):
     else:
         return -1
     return index
-

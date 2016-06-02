@@ -25,3 +25,4 @@ class TextFile:
                     file_handle.write('%s' % line)
                 else:
                     file_handle.write('\n%s' % line)
+
