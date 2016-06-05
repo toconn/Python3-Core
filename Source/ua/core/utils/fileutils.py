@@ -52,11 +52,22 @@ def is_file_exists(file_path):
     return exists
 
 def file_base_name (file_name):
+    ''' returns the base name of a file name (filename.ext = filename).
+    '''
     
     file_base_name, file_ext = os.path.splitext(file_name)
     return file_base_name
 
 def file_extension (file_name):
+    ''' Returns the file extension (dir/filename.ext = ext)
+    '''
     
     file_base_name, file_ext = os.path.splitext(file_name)
     return file_ext
+
+def path_file_name (file_path):
+    ''' Returns the full file name from the path (dir/filename.ext = filename.ext)
+    '''
+
+    file_name = os.path.basename(file_path)
+    return file_name
