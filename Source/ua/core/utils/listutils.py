@@ -5,6 +5,18 @@ def count (list1):
     else:
         return 0
 
+def get_item(list1, index):
+    ''' Return an element from a list.
+        If the index is out of bounds, return None
+    '''
+
+    value = None
+
+    if list is not None and len(list1) > index:
+        value = list1[index]
+        
+    return value
+
 def is_empty(list1):
     
     return count(list1) == 0
