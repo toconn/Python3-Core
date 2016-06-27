@@ -4,6 +4,21 @@ from ua.core.utils import strutils
 
 class Test_StrUtils(unittest.TestCase):
     
+    def test_after_none(self):
+        
+        result = strutils.after(None, 'break')
+        self.assertIsNone(result)
+    
+    def test_after_match(self):
+        
+        result = strutils.after('ABCbreak123', 'break')
+        self.assertEquals('123', result)
+    
+    def test_after_no_match(self):
+        
+        result = strutils.after('ABC123', 'break')
+        self.assertEquals('ABC123', result)
+
     def test_before_none(self):
         
         result = strutils.before(None, 'break')

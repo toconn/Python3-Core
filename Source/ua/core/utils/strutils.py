@@ -1,5 +1,20 @@
 import re
 
+def after(string, substring):
+    ''' Returns the text before the search string
+        Or returns the whole string if not found.
+    '''
+    
+    if string is not None and substring is not None:
+        index = string.find (substring)
+    else:
+        index = -1
+
+    if index > -1: 
+        return string [index + len (substring):]
+    else:
+        return string
+
 def before(string, substring):
     ''' Returns the text before the search string
         Or returns the whole string if not found.
