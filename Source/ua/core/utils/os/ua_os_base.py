@@ -1,4 +1,5 @@
 import abc
+from ua.core.utils import strutils
 
 class UaOsBase:
     ''' Base class for OS utilities.
@@ -30,9 +31,23 @@ class UaOsBase:
     @abc.abstractmethod
     def is_windows(self):
         pass
+    
+    def join_path (self, root_dir, file):
+
+        if strutils.ends_with (root_dir, self.file_separator()):
+            return root_dir + file
+        else:
+            return root_dir + self.file_separator() + file
 
     @abc.abstractmethod
     def newline(self):
+        pass
+    
+    @abc.abstractmethod
+    def open_document (self, file_name):
+        '''
+            Open document in the applicable program.
+        '''
         pass
 
     @abc.abstractmethod

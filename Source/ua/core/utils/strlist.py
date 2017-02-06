@@ -2,6 +2,9 @@ from ua.core.utils import listutils
 from ua.core.utils import strutils
 
 class StrList:
+    '''
+        A class wrapping a list of strings.
+    '''
     
     def __init__(self, strings):
         

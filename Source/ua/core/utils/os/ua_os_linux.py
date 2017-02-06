@@ -26,6 +26,9 @@ class UaOsLinux (UaOsBase):
     def newline(self):
         return UaOsLinux.NEWLINE
 
+    def open_document (self, file_name):
+        raise NotImplementedError
+
     def os_name(self):
         return UaOsLinux.OS_NAME
 

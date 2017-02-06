@@ -8,3 +8,4 @@ class AppInfo:
         self.build_number = build_number
         self.created_date = created_date
     
+    

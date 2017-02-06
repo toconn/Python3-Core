@@ -25,6 +25,9 @@ class UaOsOsx (UaOsBase):
 
     def newline(self):
         return UaOsOsx.NEWLINE
+    
+    def open_document (self, file_name):
+        os.system ('open "' + file_name + '"')
 
     def os_name(self):
         return UaOsOsx.OS_NAME

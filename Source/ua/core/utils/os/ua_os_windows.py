@@ -26,6 +26,9 @@ class UaOsWindows (UaOsBase):
     def newline(self):
         return UaOsWindows.NEWLINE
 
+    def open_document (self, file_name):
+        os.system ("start " + file_name)
+
     def os_name(self):
         return UaOsWindows.OS_NAME
 

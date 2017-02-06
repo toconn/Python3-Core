@@ -114,6 +114,21 @@ class Test_StrUtils(unittest.TestCase):
         result = strutils.equals_ignore_case ('ABCD', 'ABCD')
         self.assertTrue (result)
     
+    def test_find_match_indexes_no_match(self):
+        
+        result = strutils.find_match_indexes("abcd", "e")
+        self.assertEquals ([], result)
+    
+    def test_find_match_indexes_1_match(self):
+        
+        result = strutils.find_match_indexes("abcd", "b")
+        self.assertEquals ([1], result)
+    
+    def test_find_match_indexes_2_matches(self):
+        
+        result = strutils.find_match_indexes("abcbd", "b")
+        self.assertEquals ([1, 3], result)
+    
     def test_is_blank_empty(self):
         
         result = strutils.is_blank('')

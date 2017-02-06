@@ -77,6 +77,11 @@ def equals_ignore_case (string1, string2):
         # One is None but not both.
         return False
 
+def find_match_indexes (string, search_string):
+    
+    return [match.start() for match in re.finditer(search_string, string)]
+    
+
 def is_blank (string):
     
     if not string or string.isspace():
