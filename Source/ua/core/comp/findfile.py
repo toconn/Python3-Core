@@ -36,26 +36,36 @@ class FindFile:
         return self
     
     def search_current_dir (self, search_current_dir):
+        ''' Set whether to search the current directory (true | false).
+        '''
         
         self._search_current_dir = search_current_dir
         return self
 
     def search_user_app_dir (self, search_user_app_dir):
+        ''' Set whether to search the standard user app directory (true | false).
+        '''
         
         self._search_user_app_dir = search_user_app_dir
         return self
 
     def search_user_app_dir_env_var (self, search_user_app_dir_env_var):
+        ''' Set whether to search the directory set by the user app directory environment variable (true | false).
+        '''
         
         self._search_user_app_dir_env_var = search_user_app_dir_env_var
         return self
 
     def search_user_dir (self, search_user_dir):
+        ''' Set whether to search the user directory (true | false).
+        '''
         
         self._search_user_dir = search_user_dir
         return self
 
     def subdir_name (self, subdir_name):
+        ''' Set the subdirectory name.
+        '''
         
         self._subdir_name = subdir_name
         return self
@@ -77,6 +87,23 @@ class FindFile:
                 break
             
         return actual_dir
+    
+    def findAll (self, file_name, subdir_name = None):
+        ''' Return the directories containing the file.
+            Returns an empty if not found.
+        '''
+        actual_dir_list = []
+        
+        for dir_name in self._get_search_dirs():
+            
+            self._print (dir_name)
+            
+            if fileutils.is_dir_and_file_exists(dir_name, file_name):
+                
+                self._print ('Found')
+                actual_dir_list.append (dir_name)
+            
+        return actual_dir_list
     
     def _get_dir_subdir (self, dir_name):
         ''' Correctly concatenates the pre-set subdirectory name to the directory.

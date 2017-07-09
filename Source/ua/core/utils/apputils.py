@@ -11,7 +11,7 @@ def get_parsed_args (argument_parser, arguments):
     parsed_arguments.params = arguments
     
     if listutils.is_empty(parsed_arguments.params):
-        parsed_arguments.help_flag = True
+        parsed_arguments.show_help_flag = True
         
     return parsed_arguments
 
@@ -21,17 +21,17 @@ def get_quick_version_info (app_info):
 
 def show_defaults (argument_parser, parsed_params, app_info):
     ''' Scan the parsed_params
-        find any standard flags (help, version, params)
+        find any standard flags (show_help, show_version, show_params)
         and print them out
     '''
     
-    if parsed_params.help_flag:
+    if parsed_params.show_help_flag:
         show_help(argument_parser)
     
-    if parsed_params.version_flag:
+    if parsed_params.show_version_flag:
         show_version(app_info)
         
-    if parsed_params.params_flag:
+    if parsed_params.show_params_flag:
         show_params(parsed_params)
 
 def show_help (argument_parser):
