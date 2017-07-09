@@ -142,7 +142,7 @@ def startswith_ignore_case(string, start):
     '''
     
     if string is not None:
-        return bool(re.match(start, string, re.I))
+        return bool(re.match(start, string, re.IGNORECASE))
     else:
         return False
 

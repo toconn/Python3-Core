@@ -12,7 +12,7 @@ class Test_IsFirst(unittest.TestCase):
         self.assertFalse(first.is_first())
         self.assertFalse(first.is_first())
 
-    def test_isFirst(self):
+    def test_isNotFirst(self):
 
         first = isfirst.IsFirst()
 
