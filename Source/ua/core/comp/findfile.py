@@ -70,7 +70,7 @@ class FindFile:
         self._subdir_name = subdir_name
         return self
 
-    def find (self, file_name, subdir_name = None):
+    def findFirst (self, file_name, subdir_name = None):
         ''' Return the directory containing the file.
             Returns None if not found.
         '''

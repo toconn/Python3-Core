@@ -39,6 +39,7 @@ def file_base_name (file_name):
     ''' Returns the base name of a file name (filename.ext = filename).
     '''
     
+    file_name = path_file_name(file_name)
     file_base_name, file_ext = os.path.splitext(file_name)
     return file_base_name
 

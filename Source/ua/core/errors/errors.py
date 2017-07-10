@@ -22,19 +22,19 @@ class UaException (Exception):
         return ' '.join (self.messages)
 
 
-class InvalidConfigError (UaException):
+class InvalidConfig (UaException):
 
     def __init__(self, *args, **kwargs):
 
         UaException.__init__(self, *args, **kwargs)
 
-class ItemExistsError (UaException):
+class ItemAlreadyExists (UaException):
 
     def __init__(self, *args, **kwargs):
 
         UaException.__init__(self, *args, **kwargs)
   
-class ItemNotFoundError (UaException):
+class ItemNotFound (UaException):
 
     def __init__(self, *args, **kwargs):
 
@@ -48,7 +48,7 @@ class UserRequestExit (UaException):
         UaException.__init__(self, *args, **kwargs)
 
 
-class ValidationError (UaException):
+class FailedValidations (UaException):
 
     def __init__(self, *args, **kwargs):
 
