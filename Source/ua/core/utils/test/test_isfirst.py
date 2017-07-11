@@ -8,7 +8,7 @@ class Test_IsFirst(unittest.TestCase):
 
         first = isfirst.IsFirst()
 
-        self.assertTrue(first.isirst())
+        self.assertTrue(first.is_first())
         self.assertFalse(first.is_first())
         self.assertFalse(first.is_first())
 
