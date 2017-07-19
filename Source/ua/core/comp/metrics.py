@@ -1,5 +1,11 @@
 from datetime import datetime
-import time
+from enum import Enum
+
+from ua.core.enums.status import Status
+
+class MeterStatus(Enum):
+    STARTED = 0
+    STOPPED = 1
 
 class MeteredEvent:
     """ 
@@ -8,16 +14,15 @@ class MeteredEvent:
 
     def __init__(self):
 
-        self.id = 0
+        self.event_id = 0
         self.component_name = ""
         self.component_action = ""
         self.parameters = ""
         self.user_id = 0
-        self.start_date_time = datetime.today()
-        self.duration_ms = 0        # Duration in milliseconds
         self.result_status = None
-        
-        self._start_clock_time = time.time()
+
+        self.reset()
+        self.start()
 
     def __repr__(self):
 
@@ -29,10 +34,27 @@ class MeteredEvent:
             ", user_id=" + (str(self.user_id) if self.user_id is not None else "[None]") + \
             ", duration_ms=" + (str(self.duration_ms) if self.duration_ms is not None else "[None]") + \
             "]"
-            
-    def stop (self, result_status):
+
+    def reset(self):
         
-        stop_clock_time = time.time()
+        self.start_date_time = None
+        self.duration_delta_time = 0.0
+        
+        self._status = MeterStatus.STOPPED
+        self._start_clock_time = None
+
+    def start(self):
+        
+        if self._status != MeterStatus.STARTED:
+
+            self.start_date_time = datetime.today()
+            # self._start_clock_time = time.time()
+            self._status = MeterStatus.STARTED
+            
+    def stop(self, result_status = Status.OK):
+        
+        stop_date_time = datetime.today()
+        self._status = MeterStatus.STOPPED
         
         self.result_status = result_status
-        self.duration_ms = 
+        self.duration_delta_time = stop_date_time - self.start_date_time

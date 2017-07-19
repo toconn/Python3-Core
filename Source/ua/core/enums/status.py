@@ -1,7 +1,7 @@
 from enum import Enum
 
 class Status (Enum):
-    SUCCESS = 0
+    OK = 0
     EXCEPTION = 1
     ACCESS_DENIED = 2
     INVALID_CONFIGURATION = 4
