@@ -22,35 +22,37 @@ class UaException (Exception):
         return ' '.join (self.messages)
 
 
-class InvalidConfig (UaException):
-
+class AccessDenied (UaException):
     def __init__(self, *args, **kwargs):
-
         UaException.__init__(self, *args, **kwargs)
+
+
+class InvalidConfig (UaException):
+    def __init__(self, *args, **kwargs):
+        UaException.__init__(self, *args, **kwargs)
+
+
+class InvalidRequest (UaException):
+    def __init__(self, *args, **kwargs):
+        UaException.__init__(self, *args, **kwargs)
+
 
 class ItemAlreadyExists (UaException):
-
     def __init__(self, *args, **kwargs):
-
         UaException.__init__(self, *args, **kwargs)
   
+  
 class ItemNotFound (UaException):
-
     def __init__(self, *args, **kwargs):
+        UaException.__init__(self, *args, **kwargs)
 
+
+class RequestTimedOut (UaException):
+    def __init__(self, *args, **kwargs):
         UaException.__init__(self, *args, **kwargs)
 
 
 class UserRequestExit (UaException):
-
     def __init__(self, *args, **kwargs):
-
-        UaException.__init__(self, *args, **kwargs)
-
-
-class FailedValidations (UaException):
-
-    def __init__(self, *args, **kwargs):
-
         UaException.__init__(self, *args, **kwargs)
 
