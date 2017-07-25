@@ -1,6 +1,6 @@
 import unittest
 from datetime import datetime, timedelta
-from ua.core.comp.metrics import MeteredEvent
+from ua.core.comp.metrics import Meter
 from ua.core.enums.status import Status
 from time import sleep
 from ua.core.utils import dateutils
@@ -20,28 +20,28 @@ class TestMetrics (unittest.TestCase):
 
     def test_1_second_start_stop (self):
         
-        metered_event = MeteredEvent()
+        meter = Meter()
         sleep (1.0)
-        metered_event.stop(Status.OK)
+        meter.stop(Status.OK)
         
-        print ("1 seconds Start/Stop Duration: " + str (metered_event.duration_delta_time))
+        print ("1 seconds Start/Stop Duration: " + str (meter.duration_delta_time))
 
-        self.assertTrue(metered_event.duration_delta_time <= ACCEPTABLE_TIME_DIFF_ONE_SECOND_DELTATIME, "Metered event took too long.")
+        self.assertTrue(meter.duration_delta_time <= ACCEPTABLE_TIME_DIFF_ONE_SECOND_DELTATIME, "Metered event took too long.")
 
     def test_instant_start_stop (self):
         
-        metered_event = MeteredEvent()
-        metered_event.stop(Status.OK)
+        meter = Meter()
+        meter.stop(Status.OK)
         
-        print ("Instant Start/Stop Duration: " + str (metered_event.duration_delta_time))
+        print ("Instant Start/Stop Duration: " + str (meter.duration_delta_time))
         
-        self.assertTrue(metered_event.duration_delta_time <= ACCEPTABLE_TIME_DIFF_SHORT_DELTATIME, "Instant Metered event took too long.")
+        self.assertTrue(meter.duration_delta_time <= ACCEPTABLE_TIME_DIFF_SHORT_DELTATIME, "Instant Metered event took too long.")
 
     def test_start_time (self):
         
         now_date_time = datetime.today()       
-        metered_event = MeteredEvent()
+        meter = Meter()
         
-        self.assertTrue(dateutils.is_datetime_within (metered_event.start_date_time, now_date_time, ACCEPTABLE_TIME_DIFF_SHORT_DELTATIME))
+        self.assertTrue(dateutils.is_datetime_within (meter.start_date_time, now_date_time, ACCEPTABLE_TIME_DIFF_SHORT_DELTATIME))
         
-        print ("Start Time: " + str (metered_event.start_date_time))
+        print ("Start Time: " + str (meter.start_date_time))

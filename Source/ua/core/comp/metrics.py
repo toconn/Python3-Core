@@ -7,7 +7,7 @@ class MeterStatus(Enum):
     STARTED = 0
     STOPPED = 1
 
-class MeteredEvent:
+class Meter:
     """ 
         Created with CodeCrank.io
     """
@@ -17,6 +17,7 @@ class MeteredEvent:
         self.event_id = 0
         self.component_name = ""
         self.component_action = ""
+        self.operation_count = 0
         self.parameters = ""
         self.user_id = 0
         self.result_status = None
@@ -35,10 +36,29 @@ class MeteredEvent:
             ", duration_ms=" + (str(self.duration_ms) if self.duration_ms is not None else "[None]") + \
             "]"
 
+    @property
+    def duration_microseconds(self):
+        
+        total = self._duration_delta_time.microseconds
+        total = total + self._duration_delta_time.seconds *    1000000
+        
+        return  total
+
+    @property
+    def duration_seconds(self):
+        
+        total = self._duration_delta_time.microseconds / 1000000
+        total = total + self._duration_delta_time.seconds
+        
+        return  total
+
+    def increment_op_count(self):
+        self.operation_count += 1
+        
     def reset(self):
         
         self.start_date_time = None
-        self.duration_delta_time = 0.0
+        self._duration_delta_time = 0.0
         
         self._status = MeterStatus.STOPPED
         self._start_clock_time = None
@@ -57,4 +77,4 @@ class MeteredEvent:
         self._status = MeterStatus.STOPPED
         
         self.result_status = result_status
-        self.duration_delta_time = stop_date_time - self.start_date_time
+        self._duration_delta_time = stop_date_time - self.start_date_time
