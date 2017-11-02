@@ -27,6 +27,11 @@ class AccessDenied (UaException):
         UaException.__init__(self, *args, **kwargs)
 
 
+class FailedValidations (UaException):
+    def __init__(self, *args, **kwargs):
+        UaException.__init__(self, *args, **kwargs)
+
+
 class InvalidConfig (UaException):
     def __init__(self, *args, **kwargs):
         UaException.__init__(self, *args, **kwargs)
