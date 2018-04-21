@@ -6,11 +6,17 @@ class TextFile:
         
         self.file_path = file_path
         
+    def read(self):
+        
+        with open(self.file_path, 'r') as file_handle:
+            content_text = file_handle.read()
+
+        return content_text
+        
     def read_lines(self):
         
-        with open(self.file_path) as file_handle:
-            content_text = file_handle.read()
-            content_lines = content_text.split('\n')
+        content_text = self.read()
+        content_lines = content_text.split('\n')
         
         return content_lines
         

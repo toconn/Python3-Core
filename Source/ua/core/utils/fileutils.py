@@ -129,11 +129,21 @@ def read_dir_files(dir_path, file_filter=None):
     return files
 
 def read_latest_file(path):
+    """ Returns the file with the latest timestamp.
+    """
+    
     files = read_dir_files(path, "*")
     latest_file = max(files, key=os.path.getctime)
     latest_file_name = path_file_name(latest_file)
     
     return latest_file_name
+
+def read_to_text(path):
+        
+    with open(path, 'r') as file_handle:
+        content_text = file_handle.read()
+
+    return content_text
 
 def path_file_name (file_path):
     ''' Returns the full file name from the path (dir/filename.ext -> filename.ext)
