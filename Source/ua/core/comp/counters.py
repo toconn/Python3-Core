@@ -20,4 +20,4 @@ class Counter:
 
     @property
     def value(self):
-        return self.__value
+        return self._value
